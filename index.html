@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: cornflowerblue;
+        }
+        pre{
+            background-color: bisque;
+        }
+        p{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>difference between "==" and "==="</h1>
+        <P>"==" :- the "==" performs loose equality comparizon that does type coercion if necessary for comparizon</P>
+        <pre>
+            2=="2"  
+            output
+            true
+        </pre>
+        <p>"===" :-  the "===" performs strict equality comparizon that does not do type coercion it compares both operand and its type</p>
+        <pre>
+            2==="2"
+            output
+            false
+        </pre>
+    </div>
+    <div>
+        <h1>Difference between var let and const</h1>
+        <p><b>var<b> :- 1) variable declared with var have global and local execution
+               <pre>
+                example:- 
+                var number=20; //global 
+                function print(){
+                    var b=10 //local
+                    console.log(number) //20
+                }
+                console.log(b) //reference error b is not defined 
+              </pre>
+                   2) varibale declared with var can be redecalred and reassigned
+                   <pre>
+                    example:-  redeclaring a
+                    var a=10;
+                    console.log(a) //10
+                    var a=30;
+                    console.log(a)//10
+                    <hr>
+                    example:- reassigning a
+                    var a=10;
+                    console.log(a);//10
+                    a=20;
+                    console.log(a);//10
+                   </pre>
+                  3) varibale declared with var is hoisted to the top of their global or local scope with initial value as undefined 
+                  <pre>
+                    console.log(a)
+                    var a=10;//undefined  ---> only declaration is hoisted assignment is not hoisted
+                    console.log(a) // 10
+                  </pre>
+                  
+        </p>
+        <p><b>let</b>:- 1)variable declared with let has local global, and block level scope
+        <pre>
+            function print(){
+                if(5>1){
+                    let a=20;
+                    let b=10;
+                    console.log(b) //10
+                }
+                console.log(a)// reference error a  not declared 
+            }
+        </pre> 
+        2) varibale decalred with let can be reassigned but not redeclared
+        <pre>
+            let a=10;
+            console.log(a) //10
+            a=20;
+            console.log(a)//20
+            let a=30;
+            console.log(a)// syntax error identifier a is already declared 
+        </pre>
+        3) varible declared with var let can be hoisted to the top of local global and block but not initialized
+        <pre>
+            console.log(a); // cannot access a without initialization
+            let a=10 
+        </pre>
+    </p>     
+        <p><b>const</b> :-1) variable declared with const has local ,global and block level scope same as let 
+            2) variable declared with const cannot be reassigned and redeclared 
+            <pre>
+             const a=10;
+             const a=20; //synatx error a is alredy been declared 
+             <hr>
+             const a=10;
+             a=20;//type error assignement to const variable 
+            </pre>
+            3) variable declared with const are hoisted same as  let  not with default initialization gives reference error
+        </p>
+        
+    </div>
+    <div><h1>what is hoisting ?</h1>
+    <p> hoisting is a default behavior of moving declarations to the top of the current scope</p></div> 
+    <div><h1>what is temporaldead zone(TDZ)</h1>
+    <P>A let or const variable is said to be in a "temporal dead zone" (TDZ) from the start of the block until code<br>
+         execution reaches the line where the variable is declared and initialized. While inside the TDZ, the <br>variable has
+         not been initialized with a value, and any attempt to access it will result in a ReferenceError </P>
+        <pre>
+              if(true){
+                console.log(a); //a is in temporal dead zone
+
+                let a=12;
+              }
+        </pre>cv    </div>
+    <div> <h1>what is meant by first class function?</h1>
+    <P> functions in called as the first class function when they are treated like other variables. So the functions can be<br>
+         assigned to any other variable or passed as an argument or can be returned by another function.
+        <pre>
+            function sayHello(name){
+                console.log(`hello,${name}`);
+            }
+            const greeting=sayHello;
+            greeting("prepbytes");
+        </pre></P></div>
+        <div><h1>what are pure functions?</h1>
+        <p>a functions which always returns the same results if the same arguments are passed</p>
+    <pre>
+        function calculategst(price){
+                console.log(price*0.5)
+        }
+        calculategst(23) //pure function bcz it gives same output when price is passed the output <br>
+        doesnot depends on any third variable for example price*tax/100 ....>here the output depends tax variable 
+    </pre></div>
+
+</body>
+</html>
